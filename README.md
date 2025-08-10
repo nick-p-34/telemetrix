@@ -32,19 +32,13 @@ Imagine you’re tracking live racing data:
 
 ## Getting Started
 
-### 1. Open a Terminal
-
-In File Explorer, navigate to the folder that this program will be stored.
-
-Right click and select `Open in Terminal`
-
-### 2. Clone the repository
+### 1. Clone the repository
 ```bash
 git clone https://github.com/nick-p-34/telemetrix.git
 cd telemetrix
 ```
 
-### 3. Start Kafka locally
+### 2. Start Kafka locally
 ```bash
 docker compose up -d
 ```
@@ -54,7 +48,7 @@ This will start:
   
   Kafka broker (Port `9092`)
 
-### 4. Run the application
+### 3. Run the application
 ```bash
 ./mvnw spring-boot:run
 ```
