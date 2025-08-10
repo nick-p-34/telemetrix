@@ -22,8 +22,8 @@ Imagine you’re tracking live racing data:
 ---
 
 ## Tech Stack
-- Java 17+
-- Spring Boot 3.x
+- Java 17
+- Spring Boot 3.5.4
 - Spring for Apache Kafka
 - Docker & Docker Compose
 - Maven
@@ -32,21 +32,29 @@ Imagine you’re tracking live racing data:
 
 ## Getting Started
 
-### 1. Clone the repository
+### 1. Open a Terminal
+
+In File Explorer, navigate to the folder that this program will be stored.
+
+Right click and select `Open in Terminal`
+
+### 2. Clone the repository
 ```bash
-git clone https://github.com/your-username/telemetrix.git
+git clone https://github.com/nick-p-34/telemetrix.git
 cd telemetrix
 ```
 
-### 2. Start Kafka locally
+### 3. Start Kafka locally
 ```bash
 docker compose up -d
 ```
 This will start:
-  ookeeper (Port `2181`)
+
+  Zookeeper (Port `2181`)
+  
   Kafka broker (Port `9092`)
 
-### 3. Run the application
+### 4. Run the application
 ```bash
 ./mvnw spring-boot:run
 ```
@@ -70,7 +78,13 @@ curl -X POST http://localhost:8080/api/telemetry \
     "timestamp": "2025-08-09T10:12:00Z"
   }'
 ```
+Single-line version for convenience
+```bash
+curl -X POST http://localhost:8080/api/telemetry -H "Content-Type: application/json" -d '{"carId":"#22","driver":"Jane Doe","team":"Apex Racing","lap":3,"speed":198.4,"rpm":12700,"timestamp":"2025-08-09T10:12:00Z"}'
+```
 Response: `202 Accepted`
+
+Note that the values in this command can be edited to simulate different telemetry, such as `"speed": 210.5` instead of `"speed": 198.4`.
 
 ### Get Recent Telemetry Events
 ```bash
