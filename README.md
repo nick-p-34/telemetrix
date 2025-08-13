@@ -56,7 +56,7 @@ This will start:
 
 ### 4. Run the application
 ```bash
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 This will start the app on http://localhost:8080
 
@@ -65,29 +65,41 @@ This will start the app on http://localhost:8080
 ## API Endpoints
 
 ### Publish A Telemetry Event
+First, create the event and add some data. The following values can be edited to create your own 
 ```bash
-curl -X POST http://localhost:8080/api/telemetry \
-  -H "Content-Type: application/json" \
-  -d '{
-    "carId": "#22",
-    "driver": "Jane Doe",
-    "team": "Apex Racing",
-    "lap": 3,
-    "speed": 198.4,
-    "rpm": 12700,
-    "timestamp": "2025-08-09T10:12:00Z"
-  }'
+$json = '{"carId":"#34", \
+          "driver":"Nick Parke", \
+          "team":"Zenith Racing", \
+          "lap":3, \
+          "speed":198.4,\ 
+          "rpm":12700, \
+          "timestamp":"2025-08-09T10:12:00Z", \
+          "gate":5, \
+          "split_time":6.5, \
+          "gear":6, \
+          "throttle":1, \
+          "brake":0, \
+          "steering_deg":-5.75, \
+          "fuel_l":98.674, \
+          "tyre_wear":0.0395, \
+          "race_time":233.35, \
+          "position_m":992.042}'
 ```
 Single-line version for convenience
 ```bash
-curl -X POST http://localhost:8080/api/telemetry -H "Content-Type: application/json" -d '{"carId":"#22","driver":"Jane Doe","team":"Apex Racing","lap":3,"speed":198.4,"rpm":12700,"timestamp":"2025-08-09T10:12:00Z"}'
+$json = '{"carId":"#22","driver":"Jane Doe","team":"Apex Racing","lap":3,"speed":198.4,"rpm":12700,"timestamp":"2025-08-09T10:12:00Z","gate":5,"split_time":6.5,"gear":1,"throttle":0.492,"brake":0.8,"steering_deg":-56.39,"fuel_l":99.674,"tyre_wear":0.0095,"race_time":33.35,"position_m":992.042}'
 ```
-Response: `202 Accepted`
 
-Note that the values in this command can be edited to simulate different telemetry, such as `"speed": 210.5` instead of `"speed": 198.4`.
+Then, POST the event
+
+```bash
+Invoke-RestMethod -Uri 'http://localhost:8080/api/telemetry' -Method Post -Body $json -ContentType 'application/json'
+```
+
+Response: `202 Accepted`
 
 ### Get Recent Telemetry Events
 ```bash
-curl http://localhost:8080/api/telemetry/recent?limit=5
+ Invoke-RestMethod -Uri 'http://localhost:8080/api/telemetry/recent?limit=5'
 ```
 Returns JSON array of most recent events.
