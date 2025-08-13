@@ -97,3 +97,19 @@ Response: `202 Accepted`
  Invoke-RestMethod -Uri 'http://localhost:8080/api/telemetry/recent?limit=5'
 ```
 Returns JSON array of most recent events.
+
+---
+
+## Finishing Up
+
+### 1. Terminate the application
+```bash
+Ctrl + C
+```
+This will stop the Spring Boot application on http://localhost:8080
+
+### 2. Terminate Kafka and Zookeeper
+```bash
+docker compose down -v
+```
+This terminates the Kafka (Port `9092`) and Zookeeper (Port `2181`) instances
