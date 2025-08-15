@@ -13,7 +13,6 @@ public class TelemetryEvent {
     private int lap;
     private double speed;
     private int rpm;
-    private Instant timestamp;
     private int gate;
     @JsonProperty("split_time")
     private double splitTime;
@@ -85,14 +84,6 @@ public class TelemetryEvent {
 
     public void setRpm(int rpm) {
         this.rpm = rpm;
-    }
-
-    public Instant getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Instant timestamp) {
-        this.timestamp = timestamp;
     }
 
     public int getGate() {

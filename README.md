@@ -67,7 +67,6 @@ $json = '{"carId":"#34", \
           "lap":3, \
           "speed":198.4,\ 
           "rpm":12700, \
-          "timestamp":"2025-08-09T10:12:00Z", \
           "gate":5, \
           "split_time":6.5, \
           "gear":6, \
@@ -81,7 +80,7 @@ $json = '{"carId":"#34", \
 ```
 Single-line version for convenience
 ```bash
-$json = '{"carId":"#34","driver":"Nick Parke","team":"Zenith Racing","lap":3,"speed":198.4,"rpm":12700,"timestamp":"2025-08-09T10:12:00Z","gate":5,"split_time":6.5,"gear":6,"throttle":1,"brake":0,"steering_deg":-5.75,"fuel_l":98.674,"tyre_wear":0.0395,"race_time":233.35,"position_m":992.042}'
+$json = '{"carId":"#34","driver":"Nick Parke","team":"Zenith Racing","lap":3,"speed":198.4,"rpm":12700,"gate":5,"split_time":6.5,"gear":6,"throttle":1,"brake":0,"steering_deg":-5.75,"fuel_l":98.674,"tyre_wear":0.0395,"race_time":233.35,"position_m":992.042}'
 ```
 
 Then, POST the event
