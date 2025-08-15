@@ -26,8 +26,8 @@ public class TelemetryEvent {
     private double fuelL;
     @JsonProperty("tyre_wear")
     private double tyreWear;
-    @JsonProperty("race_time")
-    private double raceTime;
+    @JsonProperty("stint_time")
+    private double stintTime;
     @JsonProperty("position_m")
     private double positionM;
 
@@ -159,12 +159,12 @@ public class TelemetryEvent {
         this.tyreWear = tyreWear;
     }
 
-    public double getRaceTime() {
-        return raceTime;
+    public double getStintTime() {
+        return stintTime;
     }
 
-    public void setRaceTime(double raceTime) {
-        this.raceTime = raceTime;
+    public void setStintTime(double stintTime) {
+        this.stintTime = stintTime;
     }
 
     public double getPositionM() {
