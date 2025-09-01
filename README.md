@@ -105,7 +105,11 @@ The events can also be viewed at http://localhost:8080/api/telemetry/recent
 
 ### 1. Terminate the application
 ```bash
-Ctrl + C
+Ctrl + C (in the same terminal as Step 3)
+```
+or
+```bash
+Stop-Process -Id (Get-NetTCPConnection -LocalPort 8080).OwningProcess -Force
 ```
 This will stop the Spring Boot application on http://localhost:8080
 
